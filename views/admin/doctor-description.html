@@ -1,0 +1,33 @@
+{{extend './common/layout/html'}}
+<div id="wrap">
+    {{include './common/header.html'}}
+    {{include './common/aside.html'}}
+
+    <!-- 右边内容 -->
+    <div class="col-sm-offset-3 col-md-offset-2" id="right">
+        <!-- 主体内容 -->
+        <div id="right-container">
+            <!-- 信息展示 -->
+            <div id="message">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <img src="../assets/images/tou.jpg" alt="照片">
+                        <p><span>姓名：</span><span>张三</span></p>
+                        <p>职称：<span>副院长</span></p>
+                        <p>科室：<span>内科</span></p>
+                        <p>所属医院：<span>副院长</span></p>
+                        <span>描述：</span>
+                        <P></p>
+                    </div>
+                </div>
+                <a href="doctor.html">返回</a>
+            </div>
+            <!-- 信息展示 -->
+        </div>
+        <!-- 主体内容 -->
+    </div>
+    <!-- 右边内容 -->
+
+</div>
+
+{{/block}}

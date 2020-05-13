@@ -1,0 +1,137 @@
+{{extend './common/layout.html'}}
+    <div id="wrap">
+      {{include './common/header.html'}}
+        {{include './common/aside.html'}}
+        <!-- 右边内容 -->
+        <div class="col-sm-offset-3 col-md-offset-2" id="right">
+            <!-- 主体内容 -->
+            <div id="right-container">
+                <!-- 搜索框 -->
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <span class="sr-only">用户名</span>
+                            <input class="form-control" placeholder="请输入用户名" type="text">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3">
+                        <div class="form-group ">
+                            <button class="btn btn-success">搜索</button>
+                            <button class="btn btn-success">增加用户</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- 搜索框 -->
+                <!-- 数据显示 -->
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>用户名</th>
+                                <th>邮箱</th>
+                                <th>角色</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>小可爱</td>
+                                <td>123@qq.com</td>
+                                <td>普通用户</td>
+                                <td>
+                                    <button class="btn btn-primary" data-toggle="modal"
+                                        data-target=".change-modal">修改</button>
+                                    <button class="btn btn-danger" data-toggle="modal"
+                                        data-target=".confirm-modal">删除</button>
+                                </td>
+                        </tbody>
+                    </table>
+                    <!-- 数据显示 -->
+
+                    <!-- 分页 -->
+                    <ul class="pagination">
+                        <li>
+                            <a href="#">
+                                <span>&laquo;</span>
+                            </a>
+                        </li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li>
+                            <a href="#">
+                                <span>&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /分页 -->
+                </div>
+                <!-- /数据显示 -->
+                <!-- 删除确认弹出框 -->
+                <div class="modal fade confirm-modal">
+                    <div class="modal-dialog modal-lg">
+                        <form class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                                <h4 class="modal-title">请确认</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>您确定要删除该条数据?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                <input type="submit" class="btn btn-primary">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- /删除确认弹出框 -->
+                <!-- 修改信息弹出框 -->
+                <div class="modal fade change-modal">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                                <h4 class="modal-title">修改用户数据</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form class="form">
+                                    <div class="form-group">
+                                        <label for="">用户名</label>
+                                        <input class="form-control" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">邮箱</label>
+                                        <input class="form-control" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">身份</label>
+                                        <select class="form-control">
+                                            <option value="">普通用户</option>
+                                            <option value="">医生用户</option>
+                                            <option value="">超级管理员</option>
+                                        </select>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                <input type="submit" class="btn btn-primary">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /修改信息弹出框 -->
+
+            </div>
+            <!-- 主体内容 -->
+        </div>
+        <!-- 右边内容 -->
+
+    </div>
+{{/block}}

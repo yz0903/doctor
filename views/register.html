@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册页面</title>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/css/register.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="formDiv">
+            <form role="form" action="/register" method="POST" id="registerForm">
+                <div class="form-group">
+                    <label for="name" class="sr-only">邮箱</label>
+                    <input name="email" id="email" type="email" class="form-control" placeholder="请输入注册邮箱">
+                </div>
+                <div class="form-group">
+                    <label for=" " class="sr-only">密码</label>
+                    <input name="password" id="pwd" type="password" class="form-control" placeholder="请输入密码">
+                </div>
+                <div class="form-group">
+                    <label for="" class="sr-only">确认密码</label>
+                    <input name="password" id="repwd" type="password" class="form-control" placeholder="请再次输入密码">
+                </div>
+                <div class="form-group">
+                    <label class="radio-inline">
+                        <input type="radio" name="option" value="1001" checked> 普通用户
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="option" value="1002"> 医生用户
+                    </label>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-success btn-block" type="submit">注册</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function serializeToJson(form) {
+            var result = {};
+            var f = form.serializeArray();
+            f.forEach(function (item) {
+                result[item.name] = item.value;
+            });
+            return result;
+        }
+        // 为表单添加提交事件
+        $('#registerForm').on('submit', function (e) {
+            // e.preventDefault()
+            if ($('#email').val().trim().length == 0) {
+                alert('请输入邮箱')
+                return false
+            }
+            if ($('#pwd').val().trim().length == 0) {
+                alert('请输入密码')
+                return false;
+            }
+            if ($('#pwd').val().trim().length <6) {
+                alert('密码小于6位，请重新输入')
+                return false;
+            }
+            if ($('#repwd').val().trim().length == 0) {
+                alert('请输入确认密码');
+                return false
+            }
+            if ($('#repwd').val() !== $('#pwd').val()) {
+                alert('请重新确认密码')
+                return false
+            }
+            var result = serializeToJson($(this))
+            console.log(result)
+        });
+    </script>
+</body>
+
+</html>

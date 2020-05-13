@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录页面</title>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="main">
+            <div class="imageDiv"><img src="/images/tou.jpg" alt=""></div>
+            <div>
+                <form class="" role="form" action="/login" method="post" id="loginForm">
+                    <div class="form-group form-inline">
+                        <label class="sr-only" for="name">邮箱</label>
+                        <input name="email" type="email" class="form-control"  placeholder="请输入邮箱">
+                    </div>
+                    <div class="form-group form-inline">
+                        <label class="sr-only" for="name">密码</label>
+                        <input name="password" type="password" class="form-control" placeholder="请输入密码">
+                    </div>
+                    <div class="form-group form-inline buttonDiv">
+                        <button class="btn btn-primary" id="loginBtn" type="submit">登录</button>
+                        <a href="/register" id="loginout" class="btn btn-success" role="button">注册</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function serializeToJson(form) {
+            var result = {};
+            var f = form.serializeArray();
+            f.forEach(function (item) {
+                result[item.name] = item.value;
+            });
+            return result;
+        }
+        // 为表单添加提交事件
+        $('#loginForm').on('submit', function (e) {
+            // e.preventDefault()
+            // 获取到表单中用户输入的内容
+            var result = serializeToJson($(this))
+            if (result.email.trim().length == 0) {
+                alert('请输入邮件地址');
+                return false;
+            }
+            // 如果用户没有输入密码
+            if (result.password.trim().length == 0) {
+                alert('请输入密码')
+                return false;
+            }
+        });
+    </script>
+</body>
+
+</html>

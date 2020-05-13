@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #10274b;
+}
+.main {
+  width: 350px;
+  height: 350px;
+  position: absolute;
+  border: 5px solid #c0bcbc;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: teal;
+}
+.imageDiv {
+  width: 100px;
+  height: 100px;
+  border: 5px solid #fff;
+  border-radius: 50%;
+  box-shadow: 5px 5px 3px #888;
+  position: absolute;
+  top: -50px;
+}
+.imageDiv img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.buttonDiv {
+  margin: 0 21%;
+}
