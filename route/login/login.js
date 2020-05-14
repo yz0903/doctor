@@ -19,7 +19,7 @@ module.exports = async (req, res) => {
 			if (isValid && item.roleid == 1000) {
 				// 登录成功
 				req.session.email = item.email;
-				req.app.locals.userInfo = item.email;
+				// req.app.locals.email = item.email;
 				res.redirect('/admin/doctor');
 			} else if (isValid && item.roleid == 1001) {
 				req.session.email = item.email;
