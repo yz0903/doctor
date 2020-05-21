@@ -12,16 +12,20 @@
             <div id="message">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <img src="../assets/images/tou.jpg" alt="照片">
-                        <p><span>姓名：</span><span>张三</span></p>
-                        <p>职称：<span>副院长</span></p>
-                        <p>科室：<span>内科</span></p>
-                        <p>所属医院：<span>副院长</span></p>
+                        {{each result}}
+                        <img src="{{$value.Photo}}" alt="照片">
+                        <p><span>姓名：</span><span>{{$value.DoctorName}}</span></p>
+                        <p>职称：<span>{{$value.Title}}</span></p>
+                        <p>科室：<span>{{$value.CategoryName}}</span></p>
+                        <p>所属医院：<span>{{$value.HospitalName}}</span></p>
+                        <P>电话：<span>{{$value.PhoneNumber}}</span></P>
+                        <P>邮箱：<span>{{$value.Email}}</span></P>
                         <span>描述：</span>
-                        <P></p>
+                        <P>{{$value.Introduction}}</p>
+                        {{/each}}
                     </div>
                 </div>
-                <a href="doctor.html">返回</a>
+                <a href="/admin/doctor">返回</a>
             </div>
             <!-- 信息展示 -->
         </div>
