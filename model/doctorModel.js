@@ -24,6 +24,29 @@ module.exports = {
         await sqlQuery(str, [id])
         return true
     },
+    doctorSearchCount: async function (username, title, category) {
+        let str = 'SELECT count(1) from doctor d,hospital h,dis_category ds WHERE  d.HospitalID=h.HospitalID and d.Dis_CategoryID=ds.Dis_CategoryID'
+        let arr = []
+        if (username) {
+            username = "%" + username + "%"
+            str += " and DoctorName like ?"
+            arr.push(username)
+        }
+        if (title) {
+            title = "%" + title + "%"
+            str += " and Title like ?"
+            arr.push(title)
+        }
+        if (category) {
+            category = "%" + category + "%"
+            str += " and CategoryName like ?"
+            arr.push(category)
+        }
+        // 数据总条数
+        let result = await sqlQuery(str,arr)
+        let count = JSON.parse(JSON.stringify(result))[0]['count(1)']
+        return count
+    },
     doctorSearch: async function (username, title, category, pageSize, page) {
         let str = 'SELECT  DoctorID,DoctorName,Photo,Title,PhoneNumber,Email,Introduction,HospitalName,CategoryName from doctor d,hospital h,dis_category ds WHERE  d.HospitalID=h.HospitalID and d.Dis_CategoryID=ds.Dis_CategoryID'
         let arr = []
@@ -44,6 +67,7 @@ module.exports = {
         }
         str += "limit ?,?"
         arr.push((page - 1) * pageSize, pageSize)
+        // 数据总条数
         let result = await sqlQuery(str, arr)
         return result
     }

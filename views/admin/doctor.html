@@ -9,23 +9,23 @@
         <div id="right-container">
             <!-- 搜索框 -->
             <div class="row">
-                <form action="/admin/doctor-search" method="POST">
+                <form action="/admin/doctor-search" method="get">
                     <div class="col-xs-12 col-sm-3 col-md-3">
                         <div class="form-group form-inline">
                             <span>姓名</span>
-                            <input class="form-control" type="text" name="username">
+                            <input class="form-control" type="text" name="username" value="{{username}}">
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-3 col-md-3">
                         <div class="form-group form-inline">
                             <span>职称</span>
-                            <input class="form-control" type="text" name="title">
+                            <input class="form-control" type="text" name="title" value="{{title}}">
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-3 col-md-3">
                         <div class="form-group form-inline">
                             <span>科室</span>
-                            <input class="form-control" type="text" name="category">
+                            <input class="form-control" type="text" name="category" value="{{category}}">
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-3 col-md-3">
@@ -74,14 +74,16 @@
                 <!-- 分页 -->
                 <nav aria-label="">
                     <ul class="pager">
-                        {{page}}{{page-1 < 1?'disabled':'active'}}{{total}}
-                        <li><a href="/admin/doctor?page=1" data-page="{{page=1}}">第一页</a></li>
+                        {{page}}
+                        {{page-1 < 1?'disabled':'active'}}
+                        {{total}}
+                        <li><a href="{{url}}?page=1" data-page="{{page=1}}">第一页</a></li>
                         <li class="{{page-1<1?'disabled':'active'}}">
-                            <a href="/admin/doctor?page=<%=page-1%>" data-page="{{page-1}}" id="pre">上一页</a>
+                            <a href="{{url}}?page={{prepage}}{{queryparam}}" data-page="{{page-1}}" id="pre">上一页</a>
                         </li>
                         <li class="{{page+1>total?'disabled':'active'}}">
-                            <a href="/admin/doctor?page=<%=page-0+1%>" id="next">下一页</a></li>
-                        <li><a href="/admin/doctor?page={{total}}">最后一页</a>
+                            <a href="{{url}}?page={{nextpage}}{{queryparam}}" data-page="{{page+1}}" id="next">下一页</a></li>
+                        <li><a href="{{url}}?page={{total}}">最后一页</a>
                         </li>
                     </ul>
                 </nav>

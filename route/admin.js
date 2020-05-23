@@ -13,7 +13,7 @@ admin.get('/doctor-description',require('./admin/doctor-description'))
 admin.get('/doctor-delete',require('./admin/doctor-delete'))
 
 // 医生信息检索功能
-admin.post('/doctor-search',require('./admin/doctor-search'))
+admin.get('/doctor-search',require('./admin/doctor-search'))
 
 // 疾病信息页面展示
 admin.get('/disease',require('./admin/disease/diseasePage'))
